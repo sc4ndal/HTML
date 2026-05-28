@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ko"> <!-- 언어를 한글로 작성함 -->
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>첫번째 웹페이지</title>
+        <style>
+            .color-changing-text{
+                animation: colorChange 1s infinite;
+                font-size: 50px;
+                font-weight: bold;
+            }
+
+            @keyframes colorChange {
+                0%   { color: rgb(255, 255, 255); }
+                13%  { color: rgb(182, 182, 182); }
+                25%  { color: rgb(133, 133, 133); }
+                50%  { color: rgb(0, 0, 0); }
+                67%  { color: rgb(133, 133, 133); }
+                75% { color: rgb(182, 182, 182); }
+                100% { color: rgb(255, 255, 2550); }
+            }
+        </style>
+    </head>
+
+    <body>
+        <a href="https://naver.com" target="_blank">네이버로 이동~</a>
+        <br>
+        <div class="color-changing-text"><h1>얏호이</h1></div>
+        
+    </body>
+</html>
