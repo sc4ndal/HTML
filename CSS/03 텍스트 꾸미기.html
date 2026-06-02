@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>03 텍스트 꾸미기</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Black+Ops+One&family=Noto+Sans+KR:wght@100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        color: #333;
+      }
+      .f-malgun {
+        color: blue;
+        font-family: 맑은 고딕;
+      }
+      .size-big {
+        font-size: 50px;
+      }
+      .f-gulim {
+        font-family: "Noto Sans KR", sans-serif;
+      }
+      .bold {
+        font-weight: bold;
+      }
+      .italic {
+        font-style: italic;
+      }
+      .underline {
+        text-decoration: underline;
+      }
+      .upper {
+        text-transform: uppercase;
+        /* text-transform: capitalize; */
+      }
+      .spaced {
+        letter-spacing: 5px;
+      }
+      .center {
+        text-align: center;
+      }
+      .right {
+        text-align: right;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>텍스트 꾸미기</h1>
+    <h2>글꼴 종류</h2>
+    <p class="f-malgun">맑은 고딕</p>
+    <p class="f-gulim">굴림 abcd</p>
+    <hr />
+    <h2>글자 굵기, 크기, 기울임</h2>
+    <p class="size-big bold">글자 크기가 크고 볼드체</p>
+    <p class="italic">기울어진 글자</p>
+    <hr />
+    <h2>글자 색깔</h2>
+    <p style="color: red">빨간 글자 입니다.</p>
+    <hr />
+    <h2>텍스트 효과</h2>
+    <p class="underline" style="height: 200px">밑줄 친 문장</p>
+    <p style="width: 300px; height: 200px; padding: 100px; border: 1px solid black; margin: 30px;">여백의미</p>
+    <p style="inline-block">여백의미2</p>
+    <span style="width: 400px; height: 100px">인라인 속성</span>
+    <p class="upper">fuck 친 문장</p>
+    <p class="spaced">자간을 넓힌 문장</p>
+    <hr />
+    <p class="center">중간정렬</p>
+    <p class="right">오른쪽정렬</p>
+  </body>
+</html>

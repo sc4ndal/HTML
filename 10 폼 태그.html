@@ -1,13 +1,183 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ko">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-</head>
-<body>
-    <form action="">
-        <input type="text" name="" id="">
+  </head>
+  <body>
+    <!-- get / post
+     get 방식 : 폼 데이터를 url에 담아서 전송 (url에 데이터 노출, 전송 용량 제한 있음)
+     post 방식 : 폼 데이터를 http 요청 body에 담아서 전송 (데이터가 노출되지 않음 / 전송 용량 제한 없음)
+      -->
+    <form action="#" method="get">
+      <!-- label 을 사용하면 [ 아이디 : ] 클릭시 안에 있는 input으로 포커싱 들어감 -->
+      <fieldset>
+           <!-- for == id 방법 많이 사용 -->
+           <label for="txt1"> 텍스트 </label>
+           <!-- name 을 키값으로 입력값을 전송 -->
+        <legend>회원 정보</legend>
+      <input
+        type="text"
+        name="username"
+        id="txt1"
+        placeholder="아이디 입력"
+        value="abcd"
+        maxlength="5"
+        minlength="2"
+        readonly
+        disabled
+      />
+      <br />
+      <label>비밀번호 : <input type="password" name="userpw" id="" /></label>
+      <br />
+      <label for="email">이메일 : </label>
+      <input type="email" id="email" />
+      </fieldset>
+      <br />
+      <label for="product-quantity">상품 수량 (1~10개):</label>
+      <input
+        type="number"
+        id="product-quantity"
+        name="quantity"
+        value="1"
+        min="1"
+        max="10"
+        step="1"
+      />
+      <br />
+      <label for="reservation-date">예약 날짜:</label>
+      <input
+        type="date"
+        id="reservation-date"
+        name="reservation_date"
+        min="2026-01-01"
+        max="2026-12-31"
+        required
+      />
+      <br />
+      <label for="volume">볼륨 (0~100):</label>
+      <input
+        type="range"
+        id="volume"
+        name="volume"
+        min="0"
+        max="100"
+        step="5"
+        value="40"
+      />
+      <br />
+      <label for="profile-photo">프로필 사진 (이미지만):</label>
+      <input type="file" id="profile-photo" name="photo" accept="image/*" />
+      <br />
+      <label for="docs">제출 서류 (여러 개):</label>
+      <input type="file" id="docs" name="docs" accept=".pdf,.docx" multiple />
+      <br />
+      <p><b>배송 속도를 선택해주세요:</b></p>
+      <div>
+        <input
+          type="radio"
+          id="delivery-standard"
+          name="delivery_speed"
+          value="standard"
+          checked
+        />
+        <label for="delivery-standard">일반 배송 (3-5일)</label>
+      </div>
+      <div>
+        <input
+          type="radio"
+          id="delivery-express"
+          name="delivery_speed"
+          value="express"
+        />
+        <label for="delivery-express">빠른 배송 (1-2일)</label>
+      </div>
+      <div>
+        <input
+          type="radio"
+          id="delivery-rocket"
+          name="delivery_speed"
+          value="rocket"
+        />
+        <label for="delivery-rocket">새벽 배송</label>
+      </div>
+      <br />
+      <hr />
+      <label for="male">남성</label>
+      <input type="radio" name="gender" id="male" checked />
+      <label for="female">여성</label>
+      <input type="radio" name="gender" id="female" />
+      <hr />
+      <p><b>관심 있는 프로그래밍 언어를 모두 선택해주세요:</b></p>
+      <div>
+        <input type="checkbox" id="lang-html" name="interests" value="HTML" />
+        <label for="lang-html">HTML</label>
+      </div>
+      <div>
+        <input
+          type="checkbox"
+          id="lang-css"
+          name="interests"
+          value="CSS"
+          checked
+        />
+        <label for="lang-css">CSS</label>
+      </div>
+      <div>
+        <input
+          type="checkbox"
+          id="lang-js"
+          name="interests"
+          value="JavaScript"
+          checked
+        />
+        <label for="lang-js">JavaScript</label>
+      </div>
+      <hr />
+      <div>
+        <input
+          type="checkbox"
+          id="agree"
+          name="agree_policy"
+          value="yes"
+          required
+        />
+        <label for="agree">[필수] 이용약관에 동의합니다.</label>
+      </div>
+      <hr />
+      <label for="review">상품 후기:</label><br />
+      <textarea
+        id="review"
+        name="review"
+        rows="5"
+        cols="40"
+        maxlength="300"
+        placeholder="구입하신 상품에 대한 솔직한 후기를 남겨 주세요."
+        required
+      ></textarea>
+      <hr />
+      <label for="city">살고 있는 도시:</label>
+      <select id="city" name="city">
+        <option value="">-- 선택하세요 --</option>
+        <optgroup label="수도권">
+          <option value="seoul" selected>서울</option>
+          <option value="incheon">인천</option>
+          <option value="suwon">수원</option>
+        </optgroup>
+        <optgroup label="영남권">
+          <option value="busan">부산</option>
+          <option value="daegu">대구</option>
+        </optgroup>
+        <optgroup label="호남권">
+          <option value="gwangju">광주</option>
+          <option value="jeonju">전주</option>
+        </optgroup>
+      </select>
+      <hr />
+      <input type="submit" value="전송" />
+      <button type="reset">reset</button>
+      <button type="button">버튼임</button>
     </form>
-</body>
+  </body>
 </html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2 기본 선택자</title>
+    <style>
+        /* 기본 선택자(selector) : 어떤 요소에 스타일 적용할지 선택하는 부분 */
+        /* 1. 태그 선택자 : 해당 태그를 가진 모든 요소를 선택, 태그 이름을 적는다.*/
+        p{
+            color: gray;
+        }
+        /* 2. 클래스 선택자 class="..." 라는 속성을 가진 요소 선택 */
+        /* 이름 앞에 . 을 붙임 */
+        .highlight{
+            background-color: #fff59d;
+        }
+        /* 3. 아이디 선택자 : id="..." 가 붙은 요소 선택 */
+        /* 이름 앞에 #을 붙인다. */
+        /* id는 한 페이지에서 중복되지 않는다. */
+        #h2tag, #ptag{
+            color: red;
+            border-bottom: 1px solid red;
+        }
+        /* 일반적인 경우에는 클래스 속성을 주로 사용 */
+        /*  */
+    </style>
+</head>
+<body>
+    <h1>기본 선택자</h1>
+    <h2>태그 선택자</h2>
+    <p>이 문장은 회색입니다.</p>
+    <p>이 문장은 회색입니다.</p>
+
+    <h2 class="highlight">클래스 선택자</h2>
+    <p class="highlight">이 문장은 노란색 형광팬 효과가 적용됩니다.</p>
+
+    <h2 id="h2tag">태그 선택자</h2>
+    <p id="ptag">이 문장은 빨간색 밑줄이 적용됩니다.</p>
+</body>
+</html>

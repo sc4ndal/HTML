@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>4 색상과 배경</title>
+    <style>
+      .swatch-row {
+        display: flex;
+        flex-wrap: wrap;
+      }
+      .swatch {
+        width: 100px;
+        height: 100px;
+        border: 1px solid black;
+        border-radius: 50px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>웹에서 색상 표현하기</h1>
+    <h3>신호등</h3>
+    <div class="swatch-row" style="background-color: black;">
+        <!-- #RRGGBB -->
+        <div class="swatch" style="background-color: red">색상 이름</div>
+        <div class="swatch" style="background-color: #ffa500">16진수</div>
+        <div class="swatch" style="background-color: rgb(0, 128, 0)">rgb</div>
+        <div class="swatch" style="background-color: rgb(128, 0, 163, 0.7)">rgb</div>
+    </div>
+  </body>
+</html>

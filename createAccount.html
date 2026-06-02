@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>회원가입</title>
+    <style>
+        input{
+            width: 400px;
+            text-align: right;
+        }
+
+    </style>
+</head>
+<body>
+    <fieldset style="width: 500px; text-align: right;">
+        <legend style="text-align: center;">회원가입</legend>
+        <label for="username">이름 </label>
+        <input type="text" name="username" id="username" placeholder="홍길동">
+        <br>
+        <label for="userpw">비밀번호 </label>
+        <input type="password" name="userpw" id="userpw">
+        <br>
+        <label for="userid">아이디 </label>
+        <input type="text" name="userid" id="userid" minlength="8" maxlength="20" placeholder="8~20자리">
+        <br>
+        <label for="useremail">이메일 </label>
+        <input type="email" name="useremail" id="useremail" placeholder="abcd@gmail.com">
+        <br>
+        <label for="userdate"></label>
+        <input type="date" name="userdate" id="userdate">
+        <br>
+        <label for="userphone">휴대폰</label>
+        <input type="number" name="userphone" id="userphone" placeholder="010-1234-5678">
+        <br>
+        <div style="text-align: right;">
+            <label for="male">남성</label>
+            <input type="radio" name="male" id="male">
+            <br>
+            <label for="female">여성</label>
+            <input type="radio" name="female" id="female">
+        </div>
+        
+
+        <br>
+        <button type="submit">가입하기</button>
+        <button onclick="history.back()">돌아가기</button>
+
+    </fieldset>
+</body>
+</html>
