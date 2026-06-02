@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>7. 박스모델</title>
+    <style>
+        .box{
+            width: 200px;
+            background-color: skyblue;
+            border: 4px dashed black;
+            border-radius: 10px 50px;
+            border-color: red; /* 뒤에 설정한 컬러값으로 적용 */
+            padding: 40px 20px 10px 30px; /*시계 방향으로 위쪽부터 설정*/
+            margin: 40px 20px;
+            display: flex;
+            justify-content: center;
+            
+        }
+
+        .inline{
+            border: 1px solid blue;
+            /* margin 은 좌우는 적용되지만 상하는 적용 안 됨 */
+            margin: 30px;
+            /* padding 은 전부 적용됨 */
+            padding: 30px;
+            /* inline 요소는 width, height 조절 불가능 */
+            width: 200px;
+            height: 200px;
+            display: inline-block;
+            
+        }
+        /* 자식 요소 선택 */
+        .menu li{
+            display: inline-block;
+            border: 1px solid purple;
+            border-radius: 10px;
+            width: 100px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <h2>박스모델</h2>
+    <h3>블럭 요소</h3>
+    <div class="box">나는 박스입니다.</div>
+    <div class="box">나는 박스입니다.</div>
+
+    <h3>인라인 요소</h3>
+    <span class="inline">inline1</span>
+    <span class="inline">inline2</span>
+    <span class="inline">inline3</span>
+
+    <hr>
+    <h3>인라인 블록 요소</h3>
+    <ul class="menu">
+        <li>홈</li>
+        <li>소개</li>
+        <li>메뉴</li>
+        <li>문의</li>
+    </ul>
+
+    <hr>
+    <h3>인라인 블록 요소</h3>
+    <ul>
+        <li>홈</li>
+        <li>소개</li>
+        <li>메뉴</li>
+        <li>문의</li>
+    </ul>
+</body>
+</html>

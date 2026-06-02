@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>08.시멘틱태그</title>
+    <style>
+      body {
+        margin: 0px;
+        padding: 0px;
+        background-color: rgb(255, 255, 255);
+      }
+      header {
+        padding: 3%;
+        margin: 0px;
+        color: white;
+        background-color: rgb(132, 52, 159);
+        font:
+          bold 20px Arial,
+          sans-serif;
+      }
+      nav {
+        padding: 1%;
+        margin: 0px;
+        color: white;
+        background-color: rgb(239, 208, 245);
+        font:
+          bold 16px Arial,
+          sans-serif;
+      }
+      main {
+        padding: 0%;
+        display: flex;
+      }
+      article {
+        display: inline-block;
+        width: 60%;
+        padding: 20px;
+        margin: 20px;
+        color: black;
+        background-color: rgb(192, 228, 209);
+        border-radius: 5px;
+        box-sizing: border-box;
+      }
+      aside {
+        display: inline-block;
+        width: 40%;
+        padding: 20px;
+        margin: 20px;
+        color: black;
+        background-color: rgb(207, 206, 173);
+        border-radius: 5px;
+        box-sizing: border-box;
+      }
+      footer {
+        width: 100%;
+        padding-top: 20px;
+        margin: 0px;
+        position: absolute;
+        bottom: 0;
+        color: white;
+        background-color: rgba(25, 25, 25, 0.258);
+        font:
+          normal 12px Arial,
+          sans-serif;
+        text-align: center;
+      }
+      nav ul {
+        list-style-type: none;
+        padding: 0;
+      }
+      nav ul li {
+        display: inline;
+        margin-right: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- header: 페이지의 머리말(로고, 사이트 제목) -->
+    <header>
+      <h1>맛집 블로그</h1>
+    </header>
+
+    <!-- nav: 페이지 내의 네비게이션 링크 -->
+    <nav>
+      <ul>
+        <li><a href="#">홈</a></li>
+        <li><a href="#">소개</a></li>
+        <li><a href="#">글 목록</a></li>
+        <li><a href="#">연락처</a></li>
+      </ul>
+    </nav>
+    <!-- main: 페이지의 주요 콘텐츠. 페이지에서 한 번만 사용 -->
+    <main>
+      <!-- article: 페이지 내의 독립적인 콘텐츠 단위 -->
+      <article>
+        <h2><b>오늘의 추천: 동네 김밥집</b></h2>
+        <p>
+          오늘은 동네에 새로 생긴 김밥집을 소개할게요. 김밥이 정말 맛있어요!
+        </p>
+        <!-- time: 기계가 읽을수 있는 날짜나 시간을 나타냄  -->
+        <p>작성일: <time datetime="2026-06-02">2026년 06월 02일</time></p>
+      </article>
+      <!-- aside: 페이지의 주요 콘텐츠와 간접적으로 관련된 콘텐츠 -->
+      <aside>
+        <h3><b>인기 글</b></h3>
+        <ul>
+          <li>분식 베스트</li>
+          <li>혼반 베스트</li>
+        </ul>
+      </aside>
+    </main>
+    <!-- footer: 꼬리말 페이지의 바닥글(저작권 정보, 연락처 등) -->
+    <footer>
+      <p>&copy; 2026 맛집 블로그. All rights reserved.</p>
+    </footer>
+  </body>
+</html>

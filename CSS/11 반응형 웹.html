@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>11 반응형 웹(미디어 쿼리)</title>
+    <style>
+      div {
+        background-color: yellow;
+        height: 500px;
+      }
+      .color-changing-text {
+        animation: colorChange 1s infinite;
+        font-size: 50px;
+        font-weight: bold;
+      }
+
+      @keyframes colorChange {
+        0% {
+          color: rgb(255, 255, 255);
+        }
+        13% {
+          color: rgb(182, 182, 182);
+        }
+        25% {
+          color: rgb(133, 133, 133);
+        }
+        50% {
+          color: rgb(0, 0, 0);
+        }
+        67% {
+          color: rgb(133, 133, 133);
+        }
+        75% {
+          color: rgb(182, 182, 182);
+        }
+        100% {
+          color: rgb(255, 255, 2550);
+        }
+      }
+
+      @media (min-width: 599px) {
+        div {
+          background-color: purple;
+        }
+      }
+      @media (min-width: 600px) and (max-width: 1199px) {
+        div {
+          background-color: skyblue;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div></div>
+    <h1 class="color-changing-text">야호</h1>
+  </body>
+</html>

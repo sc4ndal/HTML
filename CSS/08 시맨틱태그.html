@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>8 시맨틱 태그</title>
+    <style>
+      body {
+        margin: 0px;
+      }
+      header {
+        background-color: blueviolet;
+        padding: 20px;
+        color: white;
+        font-weight: bold;
+      }
+      ul {
+        margin: 0px;
+      }
+      .menu li {
+        display: inline;
+        margin-right: 50px;
+      }
+      nav {
+        background-color: rgb(255, 213, 247);
+        font-weight: bold;
+        color: rgb(115, 0, 222);
+        font-size: 20px;
+        margin: 0px;
+        padding: 10px;
+      }
+      main {
+        display: inline-block;
+      }
+      article {
+        padding: 20px;
+        margin: 20px;
+        background-color: rgb(227, 255, 255);
+        width: 60%;
+        border-radius: 10px;
+        box-sizing: border-box;
+        
+      }
+
+      aside {
+        background-color: rgb(255, 249, 242);
+        width: 40%;
+        margin: 20px;
+        padding: 20px;
+        border-radius: 10px;
+      }
+      footer {
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+        background-color: gray;
+        color: white;
+        padding-top: 20px;
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- header : 페이지의 머리말(로고, 사이트 제목) -->
+    <header>
+      <h1>맛집 블로그</h1>
+    </header>
+
+    <!-- nav : 메뉴(네비게이션) -->
+    <nav>
+      <ul class="menu">
+        <li>홈</li>
+        <li>소개</li>
+        <li>글 목록</li>
+        <li>연락처</li>
+      </ul>
+    </nav>
+
+    <!-- main : 페이지의 핵심 콘텐트, 페이지에서 한 번만 사용 -->
+    <main>
+      <!-- article : 독립적인 글 단위-->
+      <article>
+        <h2>오늘의 추천 : 동네 김밥집</h2>
+        <p>
+          골목 안에 숨어 있는 작은 김밥집을 소개합니다. 재료가 신선하고 가격도
+          착해서 자주 찾게 되는 곳입니다.
+        </p>
+        <!-- time : 기계가 읽을 수 있는 날짜 형식을 표시 -->
+        <p>작성일 : <time datetime="2026-06-02">2026-06-02</time></p>
+      </article>
+      <!-- aside : 본문과 직접 관련은 적은 보조 컨텐츠 -->
+      <aside>
+        <h3>인기 글</h3>
+        <ul>
+          <li>분식 베스트 5</li>
+          <li>혼밥 맛집 지도</li>
+        </ul>
+      </aside>
+
+      <!— footer: 꼬리말 페이지의 바닥글(저작권 정보, 연락처 등) —>
+      <footer>
+        <p>&copy; 2026 맛집 블로그. All rights reserved.</p>
+      </footer>
+    </main>
+  </body>
+</html>
