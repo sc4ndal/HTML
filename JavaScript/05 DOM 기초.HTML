@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>5 DOM 기초</title>
+
+</head>
+<body>
+    <h3>1. 요소 선택 & 내용, 스타일 변경</h3>
+    <p id="demo0">변경될것</p>
+    <input type="text" name="" id="demo1">
+    <button onclick="clickhere1(), clickhere0()">눌러볼래?</button><br><br>
+    <button id="btn1" style="width: 300px; height: 200px;">이건뭐임?</button><br><br>
+    <button onclick="clickreset()" id="btn2">리셋</button>
+
+        <script>
+        
+            function clickhere0(){
+                const demo0 = document.getElementById("demo0");
+                demo0.textContent = "바보";
+                demo0.style.color = "crimson";
+                demo0.style.fontSize = "70px";
+            }
+
+            clickhere1 = () => {document.getElementById("demo1").value = "바보"; };
+            
+            clickreset = () => {demo0.textContent = "변경될것";
+                                demo0.style.color = "black";
+                                demo0.style.fontSize = "20px";
+            };
+        
+        
+        document.getElementById("btn1").addEventListener("click", clickhere2 = () => {alert("왜 눌러")})
+    </script>
+</body>
+</html>

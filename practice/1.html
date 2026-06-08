@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      function cwhite() {
+        const body = document.getElementById("body");
+        if (document.getElementById("wtf").style.color !== "white") {
+          document.getElementById("wtf").style.color = "white";
+        }
+        body.style.backgroundColor = "white";
+      }
+      function cred() {
+        const body = document.getElementById("body");
+        if (document.getElementById("wtf").style.color !== "red") {
+          document.getElementById("wtf").style.color = "red";
+        }
+        body.style.backgroundColor = "red";
+      }
+      function cblue() {
+        const body = document.getElementById("body");
+        if (document.getElementById("wtf").style.color !== "blue") {
+          document.getElementById("wtf").style.color = "blue";
+        }
+        body.style.backgroundColor = "blue";
+      }
+      function cblack() {
+        const body = document.getElementById("body");
+        if (document.getElementById("wtf").style.color !== "white") {
+          document.getElementById("wtf").style.color = "white";
+        }
+        body.style.backgroundColor = "black";
+      }
+    </script>
+    <style>
+        li{
+            padding: 20px;
+        }
+        button{
+            width: 200px;
+            height: 100px;
+        }
+    </style>
+  </head>
+  <body id="body">
+    <ul style="list-style: none;">
+      <li><button id="whitebtn" onclick="cwhite()">white</button></li>
+      <li><button id="redbtn" onclick="cred()">red</button></li>
+      <li><button id="bluebtn" onclick="cblue()">blue</button></li>
+      <li><button id="blackbtn" onclick="cblack()">black</button></li>
+    </ul>
+    <h1 style="color: white" id="wtf">뭘 봄</h1>
+  </body>
+</html>

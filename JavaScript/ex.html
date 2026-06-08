@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        
+    </style>
+    <script>
+        function introduce(name){
+            if(document.getElementById('introduce').value.trim() == ""){
+                name="홍길동";
+            }
+            alert(`안녕하세요 저는 ${name}입니다.`);
+        }
+    </script>
+</head>
+<body>
+    <label for="introduce">이름 : <input type="text" name="introduce" id="introduce" placeholder="이름 입력"></label>
+    <br>
+    <button onclick="introduce(document.getElementById('introduce').value)">소개하기</button>
+</body>
+</html>

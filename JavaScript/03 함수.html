@@ -1,0 +1,154 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>3 함수</title>
+    <script>
+      // 1. 함수의 정의와 호출
+      {
+        // function greet(name){
+        //     let result = "Hello, " + name + "!";
+        //     document.getElementById('result').value = result;
+        //     // return "Hello, " + name + "!";
+        // }
+        // let message = greet("홍길동");
+      }
+      // 2. 매개변수와 반환값
+      {
+        function multiply(a, b) {
+          let result = a * b;
+          alert(result);
+        }
+      }
+      // 3. 기본 매개 변수
+      {
+        function greet(name = "Guest") {
+          let result = `Hello, ${name}!`;
+          document.getElementById("result").value = result;
+          return `Hello,  ${name} !`;
+        }
+      }
+      // 4. 함수 표현식(익명 함수)
+      {
+        const add = function (a, b) {
+          return a + b;
+        };
+        console.log(add(2, 3));
+      }
+      {
+        // 5. 화살표 함수   arrow function
+        const add = (a, b) => a + b;
+        console.log(add(1, 2));
+
+        const square = (x) => x * x; // 매개변수가 하나면 소괄호도 생략가능
+        console.log(square(5));
+
+        const sayHello = () => "안녕"; // 매개변수를 안 받으면 소괄호 써야됨;
+        console.log(sayHello());
+
+        const makePerson = (name, age) => ({ name, age }); // 객체의 반환은 () 감싼다 {}는 오브젝트 타입으로 하는거????
+        console.log(makePerson("홍길동", 20));
+      }
+
+      {
+        // 6. 화살표 함수 + 배열 map
+        const numbers = [1, 2, 3, 4, 5];
+        console.log("배열길이 : " + numbers.length);
+
+        const takeNumber = (x) => numbers[x];
+        console.log("뽑아온 index 값 : " + takeNumber(0));
+
+        for (let i = 0; i < numbers.length; i++) {
+          console.log(`${i + 1}번째 : ` + numbers[i]);
+        }
+        console.log("==========================================");
+
+        console.log("numbers를 2곱해서 새로운 배열로");
+
+        numbers.map((element) => {
+          console.log(numbers[element - 1] * 2);
+        });
+
+        // 새 배열 만들어서 거기다가 numbers 값 2로 곱해서 push로 넣음
+        const numbers2 = [];
+        for (let i = 0; i < numbers.length; i++) {
+          numbers2.push(numbers[i] * 2);
+        }
+
+        console.log("numbers2 = " + numbers2);
+        numbers.forEach((num) => {
+          numbers2.push(num * 2);
+        });
+        console.log(numbers2);
+        // 웹 브라우저에 출력
+        document.write(numbers2);
+
+        const fruits = ["사과", "바나나", "오렌지"];
+        fruits.forEach((fruit) => {
+          console.log(fruit);
+        });
+
+        // numbers 배열 요소 값에 2를 곱한 값 출력
+        for (let i = 0; i < numbers.length; i++) {}
+        numbers.forEach((element) => {
+          console.log(`${element}번째 : ` + numbers[element - 1]);
+        });
+        console.log("================");
+      }
+      // 7. 콜백 함수
+      {
+        function doSomething(callback) {
+          console.log("작업 수행중...");
+          callback(); // 전달 받은 함수를 실행
+        }
+        doSomething(function () {
+          console.log("콜백 함수 실행됨");
+        });
+        setTimeout(() => {
+          console.log("1초 경과");
+        }, 1000);        setTimeout(() => {
+          console.log("2초 경과");
+        }, 2000);
+        setTimeout(() => {
+          console.log("3초 경과");
+        }, 3000);
+      }
+    </script>
+  </head>
+  <body>
+    <div style="width: 200px; height: 200px">
+      <label for="name">이름 : </label>
+      <input type="text" name="name" id="name" />
+      <br />
+      <button
+        onclick="greet(document.getElementById('name').value)"
+        style="display: inline-block"
+      >
+        소개하기
+      </button>
+      <!-- <button onclick="greet()" style="display: inline-block;">소개하기</button>  값을 안 줘서 greet(name="Guest") 라서 Guest를 넣음 -->
+      <br />
+      <input type="text" id="result" disabled />
+    </div>
+
+    <label for="name">숫자 두개 입력</label>
+    <br />
+    <input type="text" name="multiply" id="multiply1" />
+    <br />
+    <input type="text" name="multiply" id="multiply2" />
+    <br />
+    <button
+      onclick="
+        multiply(
+          document.getElementById('multiply1').value,
+          document.getElementById('multiply2').value,
+        )
+      "
+      style="display: inline-block"
+    >
+      소개하기
+    </button>
+    <br />
+  </body>
+</html>

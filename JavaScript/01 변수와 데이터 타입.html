@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>1 변수와 데이터 타입</title>
+    <style>
+      .isclickreal {
+        display: none;
+      }
+    </style>
+    <script>
+      console.log("hello world");
+      console.clear();
+      function hideonbush() {
+        const btn1 = document.getElementById("btn1");
+        if (btn1.style.display !== "none") {
+          btn1.style.display = "none";
+        } else {
+          btn1.style.display = "block";
+        }
+      }
+      function bye() {
+        alert("왜 누름?");
+        btn1.style.display = 'none';
+      }
+      // 주석 처리
+      /*
+        왜 되는데?
+        되는데?
+        되는데?
+        */
+      const name = "홍길동";
+      // name="뷁";   const 타입은 final 처럼 변경불가한 상수
+      let age = 20;
+      age = 30;
+      console.log("이름:", name, "나이", age);
+
+      // 기본형 데이터 타입
+      // number
+      let n1 = 10;
+      let n2 = 20;
+      let n3 = 3.14;
+      console.log("n1: ", n1);
+      console.log("n2: ", n2);
+      console.log("n3: ", n3);
+      console.log(typeof n1); // number
+      console.log(typeof n2); // number
+      console.log(typeof n3); // number
+      console.log("\n");
+      console.log(typeof ("A" * 2)); // number
+      console.log("A" * 2); // NaN
+      console.log("A" + 2);
+      console.log(typeof (2 / 0)); // number
+      console.log(2 / 0); // Infinity
+
+      //  문자열(String)
+      console.log("안녕하세요");
+      console.log("안녕하세요");
+      console.log(typeof "안녕하세요");
+
+      // 진위형(Boolean)
+      let a = true;
+      console.log(a, typeof a);
+
+      // Undifined
+      let b;
+      console.log(b, typeof b);
+
+      // null
+      // console.log(c, typeof c);
+
+      console.log("id" == "id");
+
+      // Symbol
+      let s1 = Symbol("id");
+      let s2 = Symbol("id");
+      console.log(s1 === s2); // false (항상 고유함)
+
+      // BigInt
+      let big = 1234567890123456789012345678901234567890n;
+      console.log(big);
+
+      // 참조형 데이터 타입
+      // Object
+      let person = {
+        // 키:값
+        name : '홍길동',
+        age : 25,
+        hobby : ["수영", "등산", '독서'],
+        greeting : () => {console.log("이름 : ",name,"나이 : ",age);
+        }
+      };
+      console.log(person, typeof person);
+
+
+
+    </script>
+    <script src="hello.js"></script>
+  </head>
+  <body>
+    <script>
+      console.log("hello world");
+
+      let x = 10;
+      const pi = 3.14;
+      {
+        let x = 2;
+        console.log(x);
+        const pi = 3.141;
+        console.log(pi);
+      }
+      console.log(x);
+      console.log(pi);
+    </script>
+    <button onclick="hideonbush()" style="width: 300px; height: 100px; font-size: 30pt; margin: 30px;">
+      눌러봐라
+    </button>
+    <button
+      id="btn1"
+      class="isclickreal"
+      onclick="bye()"
+      style="display: none; width: 300px; height: 100px; font-size: 30pt; margin: 30px;"
+    >
+      진짜 누르네?
+    </button>
+  </body>
+</html>

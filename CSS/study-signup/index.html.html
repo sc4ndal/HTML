@@ -1,0 +1,299 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <title>종합 실습 - 주말 코딩 스터디 모집</title>
+
+    <!-- (선택) 웹 폰트: 제목용. 인터넷이 없으면 맑은 고딕으로 대체됩니다. -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&display=swap"
+      rel="stylesheet"
+    />
+
+    <style>
+      /* ===== 여기에 CSS를 작성하세요 ===== */
+      body {
+        font-family: "맑은 고딕", "Malgun Gothic", sans-serif;
+        line-height: 1.7;
+        background-color: rgb(222, 222, 222);
+      }
+      header {
+        background-image: linear-gradient(135deg, #7b1fa2, #5e35b1);
+        /* background-color: blueviolet; */
+        color: white;
+        text-align: center;
+        padding: 48px 20px 0px;
+      }
+      #main-title {
+        font-family: "Black Han Sans", "맑은 고딕", sans-serif;
+        font-size: 40pt;
+        margin: 0;
+      }
+      .tagline {
+        font-size: 18px;
+        opacity: 0.9;
+      }
+      nav {
+        background-color: rgba(0, 0, 0, 0.15);
+        margin-top: 24px;
+      }
+      nav a {
+        text-decoration: none;
+        color: white;
+        font-weight: bold;
+        padding: 14px 18px;
+        display: inline-block;
+      }
+      .menu {
+        /* background-color: rgba(56, 19, 91, 0.447); */
+        margin: 0;
+        padding: 0;
+        text-align: center;
+      }
+      .menu > li {
+        display: inline-block;
+        list-style: none;
+        padding: 0;
+      }
+      main {
+        padding: 20px;
+        max-width: 760px;
+        margin: 0 auto;
+      }
+      section {
+        padding: 24px;
+        margin: 24px;
+        border-radius: 12px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+        background-color: white;
+      }
+      h2 {
+        color: #7b1fa2;
+        border-bottom: 2px solid #ede7f6;
+        padding-bottom: 8px;
+      }
+      h2 + p {
+        color: #787878;
+        font-style: italic;
+      }
+      .intro-img {
+        width: 100%;
+        border-radius: 8px;
+        display: block;
+        margin-top: 12px;
+      }
+      table {
+        width: 100%;
+        border-collapse: collapse;
+      }
+      th,
+      td {
+        border: 1px solid #ddd;
+        padding: 10px 12px;
+        text-align: center;
+      }
+      thead th {
+        background-color: #ede7f6;
+        color: #5e35b1;
+      }
+      .form-row {
+        margin-bottom: 16px;
+      }
+      label {
+        display: inline-block;
+        font-weight: bold;
+        margin-bottom: 4px;
+      }
+      .input {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 6px;
+        box-sizing: border-box;
+        font-family: inherit;
+      }
+      .btn {
+        background-color: #5e35b1;
+        color: white;
+        border: none;
+        padding: 12px 28px;
+        border-radius: 999px;
+        font-size: 16px;
+        font-weight: bold;
+        cursor: pointer;
+      }
+      .required{
+        color: crimson;
+      }
+      footer{
+        text-align: center;
+        color: #999;
+        padding: 24px;
+        font-size: 14px;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- ===== 머리말 ===== -->
+    <header>
+      <h1 id="main-title">주말 코딩 스터디</h1>
+      <p class="tagline">비전공자도 환영! 매주 토요일, 함께 성장해요 🚀</p>
+
+      <nav>
+        <ul class="menu">
+          <li><a href="#about">소개</a></li>
+          <li><a href="#schedule">일정·회비</a></li>
+          <li><a href="#activities">활동</a></li>
+          <li><a href="#apply">신청</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <!-- ===== 본문 ===== -->
+    <main>
+      <!-- 소개: 텍스트 태그 + 이미지 -->
+      <section id="about">
+        <h2>스터디 소개</h2>
+        <p>매주 토요일 오후, 카페에 모여 웹 개발을 공부하는 모임입니다.</p>
+        <p>
+          <strong>혼자 공부하다 지치셨나요?</strong>
+          함께라면 <em>꾸준함</em>이 쉬워집니다. HTML/CSS부터 차근차근
+          시작합니다.
+        </p>
+        <img
+          class="intro-img"
+          src="https://placehold.co/700x260?text=Weekend+Coding+Study"
+          alt="주말 코딩 스터디 모임 사진"
+        />
+      </section>
+
+      <!-- 일정/회비: 표 -->
+      <section id="schedule">
+        <h2>모집 일정 &amp; 회비</h2>
+        <p>아래 일정을 확인하고 신청해 주세요.</p>
+        <table>
+          <thead>
+            <tr>
+              <th>구분</th>
+              <th>내용</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>모집 인원</td>
+              <td>10명 (선착순)</td>
+            </tr>
+            <tr>
+              <td>모임 시간</td>
+              <td>매주 토요일 14:00 ~ 17:00</td>
+            </tr>
+            <tr>
+              <td>장소</td>
+              <td>강남역 스터디 카페</td>
+            </tr>
+            <tr>
+              <td>회비</td>
+              <td>월 20,000원 (음료 포함)</td>
+            </tr>
+            <!-- TODO(선택): '회비' 행을 직접 한 줄 추가해보세요 -->
+          </tbody>
+        </table>
+      </section>
+
+      <!-- 활동: 목록 -->
+      <section id="activities">
+        <h2>이런 걸 함께 해요</h2>
+        <p>입문자 눈높이에 맞춘 커리큘럼으로 진행합니다.</p>
+        <ul>
+          <li>HTML/CSS로 나만의 웹 페이지 만들기</li>
+          <li>매주 작은 미션 &amp; 코드 리뷰</li>
+          <li>JavaScript 맛보기와 미니 프로젝트</li>
+          <li>완성한 결과물 발표 & 피드백</li>
+          <!-- TODO(선택): 활동 항목을 하나 더 추가해보세요 -->
+        </ul>
+      </section>
+
+      <!-- 신청: 폼 -->
+      <section id="apply">
+        <h2>신청하기</h2>
+        <p>아래 양식을 작성하면 신청이 완료됩니다.</p>
+        <form>
+          <div class="form-row">
+            <label for="name">이름 <span class="required">*</span></label>
+            <input
+              class="input"
+              type="text"
+              id="name"
+              name="name"
+              placeholder="홍길동"
+              required
+            />
+          </div>
+
+          <div class="form-row">
+            <label for="email">이메일 <span class="required">*</span></label>
+            <input
+              class="input"
+              type="email"
+              id="email"
+              name="email"
+              placeholder="example@email.com"
+              required
+            />
+          </div>
+
+          <div class="form-row">
+            <label>관심 분야</label><br />
+            <label
+              ><input type="radio" name="topic" value="web" checked /> 웹
+              개발</label
+            >
+            <label
+              ><input type="radio" name="topic" value="data" /> 데이터
+              분석</label
+            >
+            <label
+              ><input type="radio" name="topic" value="app" /> 앱 개발</label
+            >
+          </div>
+
+          <div class="form-row">
+            <label>참여 가능 시간</label><br />
+            <label><input type="checkbox" name="time" value="am" /> 오전</label>
+            <label
+              ><input type="checkbox" name="time" value="pm" checked />
+              오후</label
+            >
+          </div>
+
+          <div class="form-row">
+            <label for="msg">하고 싶은 말</label>
+            <textarea
+              class="input"
+              id="msg"
+              name="msg"
+              rows="4"
+              placeholder="자유롭게 적어주세요"
+            ></textarea>
+          </div>
+
+          <div class="form-row">
+            <label
+              ><input type="checkbox" required /> 개인정보 수집에 동의합니다
+              <span class="required">*</span></label
+            >
+          </div>
+
+          <button type="submit" class="btn">신청서 제출</button>
+        </form>
+      </section>
+    </main>
+
+    <!-- ===== 꼬리말 ===== -->
+    <footer>
+      <p>&copy; 2026 주말 코딩 스터디 · 문의: study@example.com</p>
+    </footer>
+  </body>
+</html>

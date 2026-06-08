@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>4 함수 실습</title>
+    <script>
+      /*  [문제 1]
+            가로(w) * 세로(h) 를 받아 넓이를 반환하는 함수 area를 완성하시오
+            console.log(area(5,3));
+        */
+      {
+        area = (w, h) => {
+          document.getElementById("wh").value = w * h;
+        };
+      }
+      // [문제 2.] 인수가 없으면 "Guest"가 출력되도록 함수 greet를 완성하시오.
+      // console.log(greet('Alice')); // Hello, Alice!
+      // console.log(greet());        // Hello, Guest!
+      {
+        function greet(name = "Guest") {
+            if (document.getElementById("Guest").value == "") {
+                name="Guest";
+            }else{
+                name=document.getElementById("Guest").value;
+            }
+        //   document.getElementById("Guest").value = result;
+          return alert(name);
+        }
+      }
+
+      // [문제 3.] 다음 함수를 화살표 함수로 바꾸시오.
+      // function half(x) { return x / 2; }
+      half = x => {return x/2;}
+      console.log(half(10));
+      
+      // [문제 4.] 콜백(callback) 함수를 n번 호출하는 함수 repeat(n, callback)을 완성하시오.
+      // repeat(3, () => console.log("안녕")); // "안녕"이 3번 출력되도록 함
+      function repeat(n, callback){
+        for(let i=0; i<n; i++){
+            callback();
+        }  
+      }
+      repeat(3, () => console.log("hi"));
+      
+
+    </script>
+  </head>
+  <body>
+    <h3>넓이구하기</h3>
+    <label for="wh">가로 세로 입력?</label><br />
+    <input type="text" name="w" id="w" placeholder="가로입력" /><br />
+    <input type="text" name="h" id="h" placeholder="세로입력" /><br />
+    <input type="text" name="wh" id="wh" disabled /><br />
+    <button
+      onclick="
+        area(
+          document.getElementById('w').value,
+          document.getElementById('h').value,
+        )
+      "
+    >
+      넓이구하기
+    </button>
+    <br /><br />
+    <h3>인수가 없으면 Guest로 표시</h3>
+    <label for="Guest">이름 입력 하실?</label><br>
+    <input type="text" name="" id="Guest" placeholder="이름입력" value=""><br>
+    <button onclick="greet(document.getElementById('Guest').value)">인수없으면 Guest</button>
+  </body>
+</html>
