@@ -1,0 +1,157 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <title>04. DOM 종합 실습 — 할 일 목록 (To-Do)</title>
+    <style>
+      body {
+        font-family: system-ui, sans-serif;
+        max-width: 440px;
+        margin: 28px auto;
+        padding: 0 16px;
+        line-height: 1.6;
+        color: #222;
+      }
+      h1 {
+        font-size: 20px;
+      }
+      input {
+        padding: 8px 10px;
+        font-size: 15px;
+        border: 1px solid #ccc;
+        border-radius: 6px;
+        width: 58%;
+      }
+      button {
+        padding: 8px 14px;
+        font-size: 14px;
+        border: 0;
+        border-radius: 6px;
+        background: #1e88e5;
+        color: #fff;
+        cursor: pointer;
+      }
+      ul {
+        list-style: none;
+        padding: 0;
+        margin-top: 16px;
+      }
+      li {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        padding: 8px 4px;
+        border-bottom: 1px solid #eee;
+      }
+      li span {
+        flex: 1;
+        cursor: pointer;
+      }
+      li.done span {
+        text-decoration: line-through;
+        color: #999;
+      }
+      li button {
+        background: #e53935;
+        padding: 4px 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>할 일 목록 (To-Do)</h1>
+    <p>
+      할 일을 입력하고 <b>추가</b>를 누르면 목록에 들어갑니다. 글자를 누르면
+      <b>완료(취소선)</b>, <b>삭제</b>를 누르면 사라집니다.
+    </p>
+
+    <input type="text" id="todoInput" placeholder="할 일을 입력하세요" />
+    <button id="addBtn">추가</button>
+    <ul id="todoList"></ul>
+    <p>남은 할 일: <strong id="remaining">0</strong>개</p>
+
+    <script>
+      // ============================================================
+      //  04. DOM 종합 실습 — 할 일 목록
+      //  교안: docs/javascript/06-dom-events.md
+      //
+      //  ▣ 오늘 할 일
+      //    '추가 / 완료 / 삭제'가 되는 할 일 목록을 직접 만든다.
+      //    이번에는 DOM 코드(요소 만들기·이벤트 달기)도 여러분이 작성한다.
+      //
+      //  ▣ 쓰게 될 DOM 기능
+      //    document.createElement("li")   → 새 요소 만들기
+      //    요소.textContent = "..."        → 글자 넣기
+      //    부모.appendChild(자식)          → 화면에 붙이기
+      //    요소.classList.toggle("done")  → 클래스 켜고 끄기
+      //    요소.remove()                  → 요소 삭제
+      //    요소.addEventListener(...)      → 이벤트 연결
+      //
+      //  ▣ 채울 곳: STEP 1 ~ STEP 4
+      // ============================================================
+
+      const input = document.getElementById("todoInput");
+      const list = document.getElementById("todoList");
+      const remaining = document.getElementById("remaining");
+
+      // ─── STEP 1. 할 일 하나를 만들어 목록에 추가하는 함수 ─────────
+      //   <li> 안에 [글자<span>] + [삭제 버튼] 구조를 만들어 list 에 붙인다.
+      //   완성 형태:  <li><span>장보기</span><button>삭제</button></li>
+      const addTodo = (text) => {
+        const li = document.createElement("li");
+        
+        // ① 글자를 담을 <span> 만들기
+        const span = document.createElement("span");
+        // TODO: span.textContent 에 text 를 넣으세요
+        span.textContent = text;
+        // ② 삭제 버튼 만들기
+        const delBtn = document.createElement("button");
+        delBtn.textContent = "삭제";
+
+        // ③ STEP 2(완료 토글): span 을 클릭하면 li 에 "done" 클래스를 toggle
+        span.addEventListener("click", () => {
+          // TODO: li.classList.toggle("done") 후, updateCount() 호출
+          li.classList.toggle("done");
+          updateCount();
+        });
+
+        // ④ STEP 3(삭제): 삭제 버튼을 누르면 li 를 화면에서 제거
+        delBtn.addEventListener("click", () => {
+          // TODO: li.remove() 후, updateCount() 호출
+          li.remove();
+          updateCount();
+        });
+
+        // ⑤ li 안에 span 과 삭제버튼을 넣고, list 에 추가
+        li.appendChild(span);
+        li.appendChild(delBtn);
+        // TODO: list 에 li 를 appendChild 하세요
+        list.appendChild(li);
+      };
+
+      // ─── STEP 4. 남은(완료되지 않은) 할 일 개수를 세어 표시 ───────
+      //   힌트: 완료된 항목은 <li class="done">. 전체 li 중 done 이 아닌 것만 센다.
+      const updateCount = () => {
+        const all = list.querySelectorAll("li"); // 전체 항목
+        const doneCount = list.querySelectorAll("li.done").length; // 완료된 개수
+        // TODO: (전체 - 완료) 를 remaining.textContent 에 넣으세요
+        remaining.textContent = all.length - doneCount;
+      };
+
+      // ════════════════════════════════════════════════════════════
+      //  연결 코드 — '추가' 버튼과 Enter 키. (수정하지 않아도 됩니다)
+      // ════════════════════════════════════════════════════════════
+      const handleAdd = () => {
+        const text = input.value.trim(); // 앞뒤 공백 제거
+        if (text === "") return; // 빈 값이면 추가하지 않음
+        addTodo(text);
+        updateCount();
+        input.value = "";
+        input.focus();
+      };
+      document.getElementById("addBtn").addEventListener("click", handleAdd);
+      input.addEventListener("keydown", (e) => {
+        if (e.key === "Enter") handleAdd(); // Enter 로도 추가
+      });
+    </script>
+  </body>
+</html>

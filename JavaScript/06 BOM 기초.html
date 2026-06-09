@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>6. BOM 기초</title>
+  </head>
+  <body>
+    <h3>브라우저 정보</h3>
+    <button id="btn">브라우저 정보 보기</button>
+
+    <br><br>
+    <button id="btnBack">뒤로 가기</button>
+    <button id="btnForward">앞으로 가기</button>
+  </body>
+  <script>
+    // HTML DOM이 완전히 로드 되면
+    document.addEventListener("DOMContentLoaded", () => {
+      document.getElementById("btn").addEventListener("click", () => {
+        // location.href : 현재 보고 있는 페이지의 전체 주소(URL)
+        console.log("location.href:", location.href);
+
+        console.log("navigator.userAgent", navigator.userAgent);
+        // navigator.language : 브라우저에 설정된 언어
+        console.log("navigator.language::", navigator.language);
+        // screww.width / height : 모니터의 해상도
+        console.log("화면 해상도:", screen.width, "x", screen.height, "y");
+        // window.innerWidth / innerHeight : 브라우저 창 안쪽 크기
+        console.log(
+          "창 안쪽 크기(window):",
+          window.innerWidth,
+          "x",
+          window.innerHeight,
+          "y",
+        );
+      });
+    });
+
+    document.getElementById("btnBack").addEventListener("click", () => {
+        jhistory.back();
+    });
+    document.getElementById("btnForward").addEventListener("click", () => {
+        history.forward();
+    });
+  </script>
+</html>

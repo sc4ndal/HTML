@@ -1,37 +1,258 @@
 <!DOCTYPE html>
 <html lang="ko">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>5 DOM 기초</title>
-
-</head>
-<body>
+    <style>
+      .hover-area {
+        padding: 8px;
+        border: 1px solid #999;
+        display: inline-block;
+      }
+      .pad {
+        padding: 6px;
+        border: 1px solid #ccc;
+        display: inline-block;
+        min-width: 220px;
+        border-radius: 4px;
+      }
+    </style>
+  </head>
+  <body>
     <h3>1. 요소 선택 & 내용, 스타일 변경</h3>
     <p id="demo0">변경될것</p>
-    <input type="text" name="" id="demo1">
-    <button onclick="clickhere1(), clickhere0()">눌러볼래?</button><br><br>
-    <button id="btn1" style="width: 300px; height: 200px;">이건뭐임?</button><br><br>
+    <input type="text" name="" id="demo1" />
+    <button onclick="(clickhere1(), clickhere0())">눌러볼래?</button
+    ><br /><br />
+    <button id="btn1" style="width: 300px; height: 200px">이건뭐임?</button
+    ><br /><br />
     <button onclick="clickreset()" id="btn2">리셋</button>
 
-        <script>
-        
-            function clickhere0(){
-                const demo0 = document.getElementById("demo0");
-                demo0.textContent = "바보";
-                demo0.style.color = "crimson";
-                demo0.style.fontSize = "70px";
-            }
+    <h3>2. textContent vs innerHTML</h3>
+    <p>textContent : <span id="demo2a"></span></p>
+    <p>innerHTML : <span id="demo2b"></span></p>
+    <button id="btn3">적용</button>
+    <br /><br />
 
-            clickhere1 = () => {document.getElementById("demo1").value = "바보"; };
-            
-            clickreset = () => {demo0.textContent = "변경될것";
-                                demo0.style.color = "black";
-                                demo0.style.fontSize = "20px";
-            };
-        
-        
-        document.getElementById("btn1").addEventListener("click", clickhere2 = () => {alert("왜 눌러")})
+    <h3>3. 요소 생성과 삭제</h3>
+    <ul id="list3"></ul>
+    <button id="add">추가</button>
+    <button id="delete">삭제</button>
+    <br /><br />
+
+    <!-- 4. 주요 이벤트 처리 -->
+    <h3>4. click vs dbclick(클릭/더블클릭)</h3>
+    <span id="out4">대기 중</span><br /><br />
+    <button id="btn4">한번클릭/두번클릭</button>
+    <br />
+
+    <h3>5. input vs change(실시간 입력)</h3>
+    <p>
+      <input
+        type="text"
+        name="in5"
+        id="in5"
+        placeholder="글자를 입력하세요"
+      /><br />
+      -> 실시간(input) :
+      <strong id="out5input">...</strong>
+    </p>
+
+    <p>
+      <select name="" id="sel5">
+        <option value="red">RED</option>
+        <option value="green">GREEN</option>
+        <option value="blue">BLUE</option>
+      </select>
+      <br />
+      -> 바뀔 때만(change) : <strong id="out5change">...</strong>
+    </p>
+
+    <h3>6. keydown / keyup (키보드)</h3>
+    <input type="text" name="" id="in6" placeholder="아무거나 입력" />
+    <p>
+      마지막으로 누른 키 : <strong id="out6">...</strong>
+      <span id="out6enter"></span>
+    </p>
+
+    <h3>7. mouseover / mouseout / mousemove (마우스)</h3>
+    <div id="area7" class="hover-area">
+      이 영역에 마우스를 올리고 움직여 보세요.
+    </div>
+    <p>좌표 : <strong id="out7">...</strong></p>
+
+    <h3>8. focus / blur (입력칸 포커스)</h3>
+    <input
+      type="text"
+      name="in8"
+      id="in8"
+      class="pad"
+      placeholder="클릭(포커스)했다가 빠져나가 보세요"
+    />
+    <p>상태: <strong id="out8">...</strong></p>
+
+    <br><br>
+    <h3>9. submit (폼 제출 - 새로고침 막기)</h3>
+    <form id="form9">
+        <input type="text" name="" id="in9" placeholder="검색어">
+        <button type="submit">검색</button>
+    </form>
+    <p>제출된 검색어 : <strong id="out9">...</strong></p>
+
+
+    <script>
+      function clickhere0() {
+        const demo0 = document.getElementById("demo0");
+        demo0.textContent = "바보";
+        demo0.style.color = "crimson";
+        demo0.style.fontSize = "70px";
+      }
+
+      clickhere1 = () => {
+        document.getElementById("demo1").value = "바보";
+      };
+
+      clickreset = () => {
+        demo0.textContent = "변경될것";
+        demo0.style.color = "black";
+        demo0.style.fontSize = "20px";
+      };
+
+      document.getElementById("btn1").addEventListener(
+        "click",
+        (clickhere2 = () => {
+          alert("왜 눌러");
+        }),
+      );
+      document.getElementById("btn3").addEventListener("click", () => {
+        const html = "<strong>굵게</strong>";
+        document.getElementById("demo2a").textContent = html; // 글자 그대로 해석
+        document.getElementById("demo2b").innerHTML = html; // 태그로 해석
+      });
+
+      // 3. 요소 생성, 추가, 삭제
+      const list3 = document.querySelector("#list3");
+      let count3 = 0;
+      document.getElementById("add").addEventListener("click", () => {
+        count3++;
+        const li = document.createElement("li"); // li 태그 요소 생성
+        li.textContent = "새 항목 " + count3;
+        list3.appendChild(li);
+      });
+
+      document.getElementById("delete").addEventListener("click", () => {
+        /*
+          자바스크립트에서 false 값이 되는것
+          1. false
+          2. 0, -0
+          3. "", '', ``
+          4. null
+          5. undifined
+          6. NaN
+
+          자바스크립트에서 true 값이 되는것
+          1. "0", "false"
+          2. []
+          3. {}
+          4. Infinity
+          5. 0을 제외한 모든 수
+          */
+        if (list3.lastElementChild) {
+          // null 들어감 ?
+          // count3--;
+          list3.lastElementChild.remove();
+        }
+      });
+
+      // 4. click vs dbclick
+      const out4 = document.getElementById("out4");
+      const btn4 = document.getElementById("btn4");
+      btn4.addEventListener("click", () => {
+        out4.textContent = "click! (한 번)";
+      });
+      btn4.addEventListener("dblclick", () => {
+        out4.textContent = "click! (두 번)";
+      });
+
+      // 5. input vs change
+      document.getElementById("in5").addEventListener("input", (e) => {
+        console.log(e);
+        document.getElementById("out5input").textContent = e.target.value;
+      });
+      // change : 값이 확정 될 때 발생(select 선택, input )
+      const selcolor = document.getElementById("sel5");
+      const out5change = document.getElementById("out5change");
+      document.getElementById("sel5").addEventListener("change", () => {
+        if (selcolor.value == "red") {
+          document.getElementById("out5change").style.color = "red";
+          out5change.textContent = "red";
+        }
+        if (selcolor.value == "blue") {
+          document.getElementById("out5change").style.color = "blue";
+          out5change.textContent = "blue";
+        }
+        if (selcolor.value == "green") {
+          document.getElementById("out5change").style.color = "green";
+          out5change.textContent = "green";
+        }
+      });
+
+      // 6. keydown / keyup
+      const out6 = document.getElementById("out6");
+      const in6 = document.getElementById("in6");
+
+      in6.addEventListener("keydown", (e) => {
+        // console.log(e);
+        out6.textContent = e.key;
+      });
+      // in6.addEventListener("keyup", (e) => {
+
+      //   document.getElementById("out6enter").textContent = e.key;
+      // });
+      in6.addEventListener("keyup", (e) => {
+        document.getElementById("out6enter").textContent =
+          e.key === "Enter" ? " -> Enter 입력됨! " : "";
+      });
+
+      // 7. 마우스 이벤트
+      const area7 = document.getElementById("area7");
+      const out7 = document.getElementById("out7");
+      area7.addEventListener("mouseover", () => {
+        area7.style.backgroundColor = "#fff3cd";
+      });
+      area7.addEventListener("mouseout", () => {
+        area7.style.backgroundColor = "";
+      });
+      area7.addEventListener("mousemove", (e) => {
+        out7.textContent = `x ${e.offsetX}, y ${e.offsetY}`;
+      });
+
+      // 8. focus / blur (입력칸 포커스)
+      // focus : 입력 칸에 들어갈 때 / blur : 빠져나올때
+      const in8 = document.getElementById("in8");
+      const out8 = document.getElementById("out8");
+      in8.addEventListener("focus", () => {
+        out8.textContent = "입력 중...(focus)";
+        in8.style.backgroundColor = "#e7f1ff";
+      });
+      in8.addEventListener("blur", () => {
+        out8.textContent = "입력 끝...(blur)";
+        in8.style.backgroundColor = "";
+      });
+
+      // 9. submit
+      // form은 제출하면 기본적으로 페이지를 새로고침함
+      // -> e.preventDefault() 로 막고 JS로 처리
+        const in9 =  document.getElementById("in9");
+        const out9 = document.getElementById("out9");
+        document.getElementById("form9").addEventListener("submit", (e) => {
+            e.preventDefault();
+            // console.log("폼 제출 이벤트 중지");
+            const keyword = in9.value;
+            out9.textContent = keyword;
+            window.open(`https:www.google.com/search?q=${keyword}`, `_blank`);
+        });
     </script>
-</body>
+  </body>
 </html>
