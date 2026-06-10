@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <title>06. 내장 객체 종합 실습 — 회원가입 유효성</title>
+    <style>
+      body {
+        font-family: system-ui, sans-serif;
+        max-width: 360px;
+        margin: 28px auto;
+        padding: 0 16px;
+        line-height: 1.6;
+        color: #222;
+      }
+      h1 {
+        font-size: 20px;
+      }
+      form {
+        border: 1px solid #ddd;
+        border-radius: 10px;
+        padding: 18px;
+      }
+      form p {
+        margin: 0 0 12px;
+      }
+      input {
+        width: 100%;
+        box-sizing: border-box;
+        padding: 8px 10px;
+        font-size: 15px;
+        border: 1px solid #ccc;
+        border-radius: 6px;
+        margin-top: 4px;
+      }
+      button {
+        width: 100%;
+        padding: 9px;
+        font-size: 15px;
+        border: 0;
+        border-radius: 6px;
+        background: #1e88e5;
+        color: #fff;
+        cursor: pointer;
+      }
+      #result {
+        font-weight: bold;
+        margin-top: 14px;
+        color: red;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>회원가입 유효성 검사</h1>
+
+    <form id="signupForm">
+      <p>이름: <input type="text" id="name" /></p>
+      <p>이메일: <input type="text" id="email" /></p>
+      <p>나이: <input type="text" id="age" /></p>
+      <p>비밀번호: <input type="password" id="password" /></p>
+      <button type="submit">가입하기</button>
+    </form>
+    <p id="result"></p>
+
+    <script>
+      // ============================================================
+      //
+      //  ▣ 검사 규칙 (위에서부터, 첫 실패 메시지를 보여줄 것)
+      //    1) 이름이 (공백 제거 후) 비어 있으면     → "이름을 입력하세요"
+      //    2) 이메일에 '@' 또는 '.' 이 없으면       → "올바른 이메일이 아닙니다"
+      //    3) 나이가 숫자가 아니면                  → "나이를 숫자로 입력하세요"
+      //    4) 나이가 14세 미만이면                  → "만 14세 이상만 가입할 수 있습니다"
+      //    5) 비밀번호가 6자 미만이면               → "비밀번호는 6자 이상이어야 합니다"
+      //    6) 모두 통과하면                        → "○○님, 가입 완료!"  (이름 넣기)
+      //
+      // ============================================================
+
+      const form = document.getElementById("signupForm");
+      const result = document.getElementById("result");
+
+      form.addEventListener("submit", (e) => {
+        e.preventDefault(); // 폼 기본 동작(새로고침) 막기
+        // 1
+        if (document.getElementById("name").value.trim() == "") {
+          return result.textContent = "이름을 입력하세요";
+        } 
+        // 2
+        if (
+          !document.getElementById("email").value.includes("@") ||
+          !document.getElementById("email").value.includes(".")
+        ) {
+          return result.textContent = "올바른 이메일이 아닙니다.";
+        }
+        // 3
+        if(document.getElementById("age").value.trim() == ""){
+            return result.textContent = "나이를 입력해주세요";
+        }
+        if (isNaN(Number(document.getElementById("age").value))) {
+            return result.textContent = "나이를 숫자로 입력하세요";
+        }
+        if (Number(document.getElementById("age").value) < 14) {
+          return result.textContent = "만 14세 이상만 가입할 수 있습니다";
+        }
+        if(document.getElementById("password").value.length < 6){
+            return result.textContent = "비밀번호는 6자 이상이어야 합니다";
+        }
+        result.textContent = "성공";
+        
+      });
+    </script>
+  </body>
+</html>

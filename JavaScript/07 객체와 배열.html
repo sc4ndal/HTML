@@ -1,0 +1,184 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>7. 객체와 배열</title>
+    <script>
+      {
+        let person = {
+          name: "John",
+          age: 25,
+          greet: () => {
+            console.log("hello");
+          }, // 쉼표 넣어도 되고 안 넣어도 되고, 넣는 경우는 추가 값이 생길 수도 있어서
+        };
+        console.log(person);
+        // 속성 접근
+        console.log(person.name); // 점 표기법
+        console.log(person["age"]); // 대괄호 표기법
+        person.greet();
+      }
+      // 객체 생성 후에 속성을 자유롭게 더하거나 바꿀 수 있음
+      {
+        let book = {}; // 빈 객체도 Object type
+        book.title = "JavaScript";
+        book["price"] = 25000;
+
+        let key = "author";
+        book[key] = "홍길동"; // .key라고 하면 값이 들어가는게 아니라 key가 들어가버림
+        console.log(book);
+        console.log(book.title);
+        console.log(book.price);
+        console.log(book.author);
+        console.log(book[key]);
+      }
+      // for..in 객체 순회
+      {
+        console.log("--- for..in 객체 순회 ---");
+
+        let sports = { soccer: "축구", baseball: "야구" };
+        for (let key in sports) {
+          console.log(key);
+        }
+      }
+
+      // 배열 : 값들을 순서대로 담는 상자, 인덱스를 가짐
+      {
+        console.log("--- 배열 : 값들을 순서대로 담는 상자, 인덱스를 가짐 ---");
+        let fruits = ["apple", "banana", "orange"];
+        console.log("--- foreach ---");
+
+        fruits.forEach((i) => {
+          console.log(i);
+        });
+        console.log("--- index 값을 받는 foreach ---");
+
+        fruits.forEach(function (i, index) {
+          console.log(index, i);
+        });
+
+        console.log("--- for ---");
+
+        for (let i = 0; i < fruits.length; i++) {
+          console.log(fruits[i]);
+        }
+      }
+
+      // 배열 요소 추가 / 삭제 (push / pop)
+      {
+        let fruits = ["apple", "banana"];
+        // 배열 맨 뒤 요소 추가
+        fruits.push("orange");
+        console.log(fruits);
+        // 배열 맨 뒤 요소 삭제
+        let last = fruits.pop();
+        console.log(last);
+        console.log(fruits);
+      }
+      // 고차 함수
+      {
+        let numbers = [1, 2, 3, 4, 5];
+
+        // map : 각 요소를 변환해서 새 배열을 만든다.
+        // numbers.map(n => {return n*2});
+        // numbers.map(n => n*2);
+        console.log(numbers.map((n) => n * 2));
+
+        // filter : 조건이 true 요소만 걸러내서 새 배열을 만든다.
+        console.log(numbers.filter((n) => n % 2 === 0).map((n) => n * 10)); // 2로 나눈 값이 0인것 짝수만 출력
+        console.log(numbers.filter((n) => n % 2 === 1).map((n) => n * 5)); // 홀수만 출력
+
+        // reduce : 요소의 값을 하나로 누적
+        // acc = 누적값, cur = 현재요소, 초기값이 들어감
+        // console.log(numbers.reduce((acc,cur) => acc+cur, 0));
+        console.log(numbers.reduce((sum, i) => sum + i, 0));
+        //초기값이 acc에 대입되고 배열 첫 인덱스 값부터 cur에 받아서 acc=초기값, acc+=cur; 이 성립됨
+
+        // find : 조건에 맞는 첫 요소 반환
+        console.log(numbers.find((n) => n > 3)); // 3보다 큰 다음 숫자는 4라서 4 반환
+
+        // some : 하나라도 만족하면 true
+        console.log(numbers.some((n) => n >= 5)); // 5가 만족해서 true 값 리턴
+
+        // every : 모두 만족해야 true
+        console.log(numbers.every((n) => n <= 4)); // 5는 만족하지 못해서 false 값 리턴
+      }
+
+      // 구조 분해 할당
+      // 배열이나 객체의 값을 순서대로 변수에 한번에 할당
+      {
+        let numbers = [1, 2, 3];
+        // let first = numbers[0];
+        // let second = numbers[1];
+        // let third = numbers[2];
+
+        const [first, second, third] = numbers;
+        console.log(first, second, third);
+
+        const [a, , c] = [10, 20, 30];
+        console.log(a, c);
+
+        const [x, y = 99] = [5];
+        console.log(x, y);
+      }
+
+      // 객체 구조분해 : 객체는 순서가 아니라 key : value 형식
+      {
+        const person = { name: "John", age: 30 };
+        const { name, age } = person;
+        console.log(name, age);
+
+        // name 값을 userName이라는 새 변수로 담는다.
+        const { name: userName } = person;
+        console.log(userName);
+
+        // 매개변수 자리에서 바로 분해 (객체를 받아서 즉시 분해)
+        function greet({ name, age }) {
+          console.log(`${name} (${age})`);
+        }
+        greet(person);
+      }
+
+      // 스프레드와 연산자 (펼치기)
+      {
+        const arr1 = [1, 2, 3];
+        const arr2 = [...arr1, 4, 5];
+        console.log(arr1);
+        console.log(arr2);
+
+        const person = { name: "철수", age: 25 };
+        const update = { ...person, age: 30, add: "부산" }; // 추가도 되고 수정도 되고
+        console.log(person);
+        console.log(update);
+
+        console.log(Math.max(...[1, 2, 3, 4]));
+        console.log(Math.max(...arr1));
+        console.log(Math.max(1, 2, 3, 4, 5));
+      }
+
+      // Rest 매개변수 (모으기)
+      {
+        // 들어온 인자를 전부 numbers 배열로 모은다
+        console.log("arrow function");
+        
+        sum = (...numbers) => numbers.reduce((acc, cur) => acc+cur,0);
+
+        // function sum(...numbers) {
+        //     return numbers.reduce((acc, cur) => acc+cur,0);
+        // };
+        console.log(sum(1,2,3));
+        console.log(sum(1,2,3,4,5));
+
+        // 첫 인자는 name, 나머지는 hobbies 배열로
+        function introduce(name, ...hobbies){
+            console.log(`${name}의 취미 : ${hobbies.join(",")}`);       // join으로 , 로 구분해서 합침
+            
+        };
+        introduce("영희", "독서", "운동", "요리");
+        
+      }
+    </script>
+  </head>
+  <body></body>
+</html>

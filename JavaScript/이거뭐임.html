@@ -54,7 +54,6 @@
       li button {
         background: #e53935;
         padding: 4px 10px;
-        
       }
     </style>
   </head>
@@ -99,11 +98,12 @@
       //   완성 형태:  <li><span>장보기</span><button>삭제</button></li>
       const addTodo = (text) => {
         const li = document.createElement("li");
-        
+
         // ① 글자를 담을 <span> 만들기
         const span = document.createElement("span");
         // TODO: span.textContent 에 text 를 넣으세요
         span.textContent = text;
+
         // ② 삭제 버튼 만들기
         const delBtn = document.createElement("button");
         delBtn.textContent = "삭제";
@@ -118,8 +118,8 @@
         // ④ STEP 3(삭제): 삭제 버튼을 누르면 li 를 화면에서 제거
         delBtn.addEventListener("click", () => {
           // TODO: li.remove() 후, updateCount() 호출
-          li.remove();
-          updateCount();
+            li.remove();
+            updateCount();
         });
 
         // ⑤ li 안에 span 과 삭제버튼을 넣고, list 에 추가
@@ -151,8 +151,97 @@
       };
       document.getElementById("addBtn").addEventListener("click", handleAdd);
       input.addEventListener("keydown", (e) => {
+        if (e.isComposing) return; // 한글 입력 시 두 번 실행되는 현상(IME 컴포지션) 방지
         if (e.key === "Enter") handleAdd(); // Enter 로도 추가
       });
     </script>
   </body>
+</html>
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS 기본</title>
+        <style>
+            
+        /* CSS의 주석, CSS정의는 선택자/속성/값으로 이루어진다. */
+        /* 주석 작성 방법  */
+        @font-face {
+            font-family: 'MyCustomFont';
+            src: url('/font/20db.otf'); /* 상대경로 현재 위치에서 font 폴더로 들어가서 20db.otf 파일을 불러옴 */
+        }
+        * {color: pink;} 
+        h1 { 
+            font-family: 'MyCustomFont', sans-serif; 
+            /* font-family는 글꼴을 지정하는 속성, MyCustomFont는 @font-face에서 정의한 글꼴 이름, sans-serif는 대체 글꼴로, MyCustomFont가 로드되지 않을 때 사용됨 */ 
+            color: purple;
+            font-size: 40px;
+            background-color: lightgrey;
+            line-height: 1.7;   /* 줄 간격 조절하는 속성, 숫자가 클수록 줄 간격 넓어짐 */
+        }
+        p {
+            color: skyblue;    
+            font-size: 20px;  
+            font-weight: bolder;
+            font-style: italic;
+            text-align: center;
+            text-decoration: underline;
+
+        }
+        .text2 {color: orange;}    
+        /* p 지만 구분해서 요소 적용할때 '.' 써서 클래스구분 '#'은 id구분 */
+        h2, h3, h3 {color: skyblue;}  /* 여러 요소에 같은 스타일 적용할 때 ,로 구분해서 요소 나열 */
+        div#div1 p {color: red;}  /* div내의 p태그에 적용 자식이 있으면 우선순위 높아져서 자식만 적용됨 */
+        div#div1 > p {color: blueviolet;}  /* div의 자식인 p태그에 적용 */
+        #div2 {color: goldenrod;}  /* id가 div2인 요소에 적용 */
+        #text1 {color: green;}  /* id가 text1인 요소에 적용 */
+
+        /* 실습 */
+        h2 {
+                text-align: justify;  /* h2 태그의 텍스트를 양쪽 정렬 */
+                text-align-last: left;
+                text-indent: 2em; /* 텍스트 들여쓰기  */
+
+                text-overflow: ellipsis;  /* 텍스트가 넘칠 때 말줄임표(...)로 표시 */
+
+                text-shadow: 2px 2px #ff0000;
+            }
+        ul > li:nth-child(2) {
+            color: red;  /* ul의 자식인 li 중에서 2번째 요소에 적용 */
+        }
+
+        ul {list-style-image: url('/image/10.png');}  /* ul의 리스트 아이템에 이미지 적용 */
+
+        .a {
+            color: blue;
+        }
+
+        a { text-decoration: none;}
+    </style>
+    <link rel="stylesheet" href="testCSS.css">
+</head>
+<body>
+    font-family: 'MyCustomFont', sans-serif; 
+    <!-- font-family는 글꼴을 지정하는 속성, MyCustomFont는 @font-face에서 정의한 글꼴 이름, sans-serif는 대체 글꼴로, MyCustomFont가 로드되지 않을 때 사용됨 -->
+<h1>[ CSS 기본, 선택자 ]</h1>
+    <p>p 태그 사용한 문자열</p>
+    <p>p 태그 사용한 문자열</p>
+    <p id="text1">id가 text1인 문자열</p>  <!-- id는 한 페이지에서 하나만 사용할 수 있음 -->
+    <p class="text2">class가 text2인 문자열</p> <!-- class는 여러 곳에서 사용할 수 있음 -->
+    <div id="div1">
+        <p>div내 p태그</p> <!-- div안에 p태그 -->
+        <div id="div2">
+            <p>div내의 p태그</p> <!-- div안의 div안의 p태그 -->
+        </div>
+
+    <div><h2>h2 태그</h2>
+        <ul>
+            <li class="a">순서가 있는 목록</li>
+            <li>순서가 있는 목록</li>
+            <li>순서가 있는 목록</li>
+        </ul></div>
+    </div> <a href="">ABCDEF</a>    <!-- 링크 텍스트 기본은 밑줄이 있는데 이걸 없애는 과정을 CSS에서 진행함 -->
+    
+</body>
 </html>
