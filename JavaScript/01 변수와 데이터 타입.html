@@ -26,9 +26,7 @@
       }
       // 주석 처리
       /*
-        왜 되는데?
-        되는데?
-        되는데?
+      ㅁㄴㅇ라ㅣ;ㅁ넝라ㅣㅓ;
         */
       const name = "홍길동";
       // name="뷁";   const 타입은 final 처럼 변경불가한 상수
@@ -75,11 +73,13 @@
       // Symbol
       let s1 = Symbol("id");
       let s2 = Symbol("id");
-      console.log(s1 === s2); // false (항상 고유함)
+      console.log("s1===s2 : ",s1 === s2); // false (항상 고유함)
 
       // BigInt
       let big = 1234567890123456789012345678901234567890n;
-      console.log(big);
+      console.log("big : ",big);
+      let big2 = BigInt(1234567890123456789012345678901234567890);
+      console.log("big2 : ",big2);
 
       // 참조형 데이터 타입
       // Object

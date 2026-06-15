@@ -1,0 +1,179 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Music Store</title>
+
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+      }
+
+      .wrap {
+        width: 900px;
+        margin: 20px auto;
+        border: 1px solid black;
+        padding: 20px;
+      }
+
+      h1 {
+        text-align: center;
+      }
+
+      .container {
+        display: flex;
+        align-items: flex-start;
+      }
+
+      .left {
+        width: 500px; /* 고정 */
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        flex-shrink: 0; /* 줄어들지 않음 */
+      }
+
+      .right {
+        width: 300px;
+        margin-left: 30px;
+      }
+
+      .left img {
+        width: 90px;
+        height: 90px;
+        cursor: pointer;    /*이미지 위에 커서 올리면 손 모양으로 바뀜*/
+        object-fit: cover;
+      }
+
+      #bigImg {
+        width: 250px;
+        height: 250px;
+        display: none;
+      }
+
+      #info {
+        display: none;
+        margin-top: 10px;
+      }
+
+      button {
+        margin-top: 10px;
+      }
+    </style>
+
+    <script>
+      const albums = [
+        {
+          title: "Symphony X",
+          artist: "Symphony X",
+          price: "28000원",
+          img: "./이미지샘플/cd1.jpg",
+        },
+        {
+          title: "Greatest Hits",
+          artist: "Queen",
+          price: "30000원",
+          img: "./이미지샘플/cd2.jpg",
+        },
+        {
+          title: "The Astonishing",
+          artist: "Dream Theater",
+          price: "32000원",
+          img: "./이미지샘플/cd3.jpg",
+        },
+        {
+          title: "Impetus",
+          artist: "Impelitteri",
+          price: "27000원",
+          img: "./이미지샘플/cd4.jpg",
+        },
+        {
+          title: "Infinite",
+          artist: "Deep Purple",
+          price: "29000원",
+          img: "./이미지샘플/cd5.jpg",
+        },
+        {
+          title: "Straight Out of Hell",
+          artist: "Helloween",
+          price: "26000원",
+          img: "./이미지샘플/cd6.jpg",
+        },
+        {
+          title: "Cobblestone",
+          artist: "Opeth",
+          price: "25000원",
+          img: "./이미지샘플/cd7.jpg",
+        },
+        {
+          title: "Piano Sonatas",
+          artist: "Mozart",
+          price: "22000원",
+          img: "./이미지샘플/cd8.jpg",
+        },
+        {
+          title: "Complete Edition",
+          artist: "Bach",
+          price: "24000원",
+          img: "./이미지샘플/cd9.jpg",
+        },
+      ];
+      function showAlbum(index) {
+        document.getElementById("bigImg").src = albums[index].img;
+
+        document.getElementById("title").innerHTML = albums[index].title;
+
+        document.getElementById("artist").innerHTML = albums[index].artist;
+
+        document.getElementById("price").innerHTML = albums[index].price;
+
+        document.getElementById("bigImg").style.display = "block";
+        document.getElementById("info").style.display = "block";
+      }
+    </script>
+  </head>
+
+  <body>
+    <div class="wrap">
+      <h1>Music Store</h1>
+
+      <div class="container">
+        <!-- 왼쪽 썸네일 -->
+        <div class="left">
+          <img src="./이미지샘플/cd1.jpg" onclick="showAlbum(0)" />
+          <img src="./이미지샘플/cd2.jpg" onclick="showAlbum(1)" />
+          <img src="./이미지샘플/cd3.jpg" onclick="showAlbum(2)" />
+          <img src="./이미지샘플/cd4.jpg" onclick="showAlbum(3)" />
+          <img src="./이미지샘플/cd5.jpg" onclick="showAlbum(4)" />
+          <img src="./이미지샘플/cd6.jpg" onclick="showAlbum(5)" />
+          <img src="./이미지샘플/cd7.jpg" onclick="showAlbum(6)" />
+          <img src="./이미지샘플/cd8.jpg" onclick="showAlbum(7)" />
+          <img src="./이미지샘플/cd9.jpg" onclick="showAlbum(8)" />
+        </div>
+
+        <!-- 오른쪽 상세정보 -->
+        <div class="right">
+          <img id="bigImg" />
+
+          <div id="info">
+            <h2 id="title"></h2>
+
+            <p>
+              Artist :
+              <span id="artist"></span>
+            </p>
+
+            <p>
+              Price :
+              <span id="price"></span>
+            </p>
+
+            <button onclick="alert('장바구니에 담았습니다.')">
+              장바구니 담기
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

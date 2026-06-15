@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>문제1</title>
+    <style>
+      body {
+        width: 500px;
+        height: 700px;
+        border: 1px solid black;
+        padding: 10px;
+      }
+      #time {
+        color: red;
+      }
+      .radio {
+        display: flex;
+      }
+      #last {
+        font-size: large;
+      }
+    </style>
+    <script>
+      // while(true){
+      // setTimeout((count) => {
+      //     var count = 0;
+      //     var minute = 0;
+      //     count++;
+      //     document.getElementById("times").textContent = parseInt(count);
+      //     document.getElementById("timee").textContent = minute;
+      //     if(count>60){
+      //       minute++;
+      //       count=0;
+      //     }
+      //   }, 1000);
+      // }
+      document.getElementById("btn").addEventListener("click", (e) => {
+        e.preventDefault();
+        if(document.getElementsByClassName("radio").value == "2"){
+          document.getElementById("answer1").textContent = "O";
+        }else{
+          document.getElementById("answer1").textContent = "X (정답은 2)";
+        }
+        if(document.getElementById("answer2").textContent == "int"){
+          document.getElementById("answer2").textContent = "O";
+        }else{
+          document.getElementById("answer2").textContent = "X (정답은 int)";
+        }
+      });
+    </script>
+  </head>
+  <body>
+    <p id="time" style="font-weight: bold">
+      경과시간: <span id="timem"></span><span id="times"></span>초
+    </p>
+    <p style="font-weight: bold">[ Java 퀴즈 ]</p>
+    <fieldset>
+      <form>
+      <p>1. Java에서 클래스를 정의할 때 사용하는 키워드는?</p>
+      <div class="radio">
+        <input type="radio" name="radio" id="" checked/>
+        <option value="1"> ①function</option>
+      </div>
+      <div class="radio">
+        <input type="radio" name="radio" id="" />
+        <option value="2"> ②class</option>
+      </div>
+      <div class="radio">
+        <input type="radio" name="radio" id="" />
+        <option value="3"> ③define</option>
+      </div>
+      <div class="radio">
+        <input type="radio" name="radio" id="" />
+        <option value="4"> ④object</option>
+      </div>
+      <label for="answer"
+        >2. 4바이트 크기의 정수형 변수를 선언할 때 사용하는 키워드는?</label
+      >
+      <input type="text" name="" id="answer" style="width: 350px" /><br />
+    </form>
+    <button type="submit" id="btn">완료</button>
+    </fieldset>
+    <p style="font-weight: bold">[ 결과 ]</p>
+    <fieldset style="border: 1px dashed black">
+      <p>1번: <span id="answer1">...</span></p>
+      <p>2번: <span id="answer2">...</span></p>
+      <br />
+      <p>총점: <span id="result">...</span>점</p>
+      <p id="last"></p>
+    </fieldset>
+  </body>
+</html>

@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>6 배경 이미지</title>
     <style>
+      /* contain 은 이미지 안 잘리고(원본유지), cover는 잘림(확대, 축소 됨) */
       .section {
         border: 1px solid black;
         width: 300px;
@@ -22,7 +23,49 @@
         /*  contain : 이미지 비율 유지하면서 width 크기에 맞춰서 채우고 부족한 부분도 같은 이미지로 채움 (잘릴 수 있음) */
         background-size: contain;
         /* 이미지 반복 여부 */
+        /* background-repeat: no-repeat; */
+        /* 이미지 위치 정렬 */
+        background-position: left;
+      }
+      .section2 {
+        border: 1px solid black;
+        width: 300px;
+        height: 300px;
+        justify-content: center;
+        align-items: center;
+        display: flex;
+        color: white;
+        font-size: 30px;
+        background-color: gray;
+        background-image: url(../img/pic1.jpg);
+        width: 500px;
+        height: 500px;
+        /*  cover : 이미지 비율 유지하면서 배경을 꽉 채움 */
+        /*  contain : 이미지 비율 유지하면서 width 크기에 맞춰서 채우고 부족한 부분도 같은 이미지로 채움 (잘릴 수 있음) */
+        background-size: contain;
+        /* 이미지 반복 여부 */
         background-repeat: no-repeat;
+        /* 이미지 위치 정렬 */
+        background-position: center;
+      }
+      .section3 {
+        border: 1px solid black;
+        width: 300px;
+        height: 300px;
+        justify-content: center;
+        align-items: center;
+        display: flex;
+        color: white;
+        font-size: 30px;
+        background-color: gray;
+        background-image: url(../img/pic1.jpg);
+        width: 500px;
+        height: 500px;
+        /*  cover : 이미지 비율 유지하면서 배경을 꽉 채움 */
+        /*  contain : 이미지 비율 유지하면서 width 크기에 맞춰서 채우고 부족한 부분도 같은 이미지로 채움 (잘릴 수 있음) */
+        background-size: cover;
+        /* 이미지 반복 여부 */
+        /* background-repeat: no-repeat; */
         /* 이미지 위치 정렬 */
         background-position: center;
       }
@@ -60,7 +103,9 @@
   <body>
     <h2>배경 이미지</h2>
     <div class="section">div 요소</div>
+    <div class="section2">div2 요소</div>
+    <div class="section3">div3 요소</div>
 
-    <h1 class="color-changing-text">⭐둠칫⭐둠칫⭐</h1>
+    <h1 class="color-changing-text">★둠칫★둠칫★</h1>
   </body>
 </html>

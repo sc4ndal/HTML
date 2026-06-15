@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>문제2</title>
+    <style>
+      header {
+        display: inline-flex;
+      }
+      #body {
+        display: flex;
+      }
+      img {
+        width: 150px;
+      }
+      #milist {
+        display: flex;
+        width: 55%;
+        margin: 10px;
+      }
+      #print {
+        display: flex;
+        width: 40%;
+        margin: 10px;
+      }
+      #printPic {
+        width: 400px;
+        background-size: contain;
+        margin: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1 style="display: flex; right: 2000px">Music Store</h1>
+    </header>
+    <div id="body">
+      <div id="mlist">
+        <table>
+          <tr>
+            <td>
+              <img src="./이미지샘플/cd1.jpg" alt="cd1.jpg" onclick="printPic1()" />
+            </td>
+            <td>
+              <img src="./이미지샘플/cd2.jpg" alt="cd2.jpg" onclick="printPic2()" />
+            </td>
+            <td>
+              <img src="./이미지샘플/cd3.jpg" alt="cd3.jpg" onclick="printPic3()" />
+            </td>
+            <td>
+              <img src="./이미지샘플/cd4.jpg" alt="cd4.jpg" onclick="printPic4()" />
+            </td>
+            <td>
+              <img src="./이미지샘플/cd5.jpg" alt="cd5.jpg" onclick="printPic5()" />
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <img src="./이미지샘플/cd6.jpg" alt="cd6.jpg" onclick="printPic6()" />
+            </td>
+            <td>
+              <img src="./이미지샘플/cd7.jpg" alt="cd7.jpg" onclick="printPic7()" />
+            </td>
+            <td>
+              <img src="./이미지샘플/cd8.jpg" alt="cd8.jpg" onclick="printPic8()" />
+            </td>
+            <td>
+              <img src="./이미지샘플/cd9.jpg" alt="cd9.jpg" onclick="printPic9()" />
+            </td>
+          </tr>
+        </table>
+      </div>
+      <div id="print">
+        <img src="" alt="" id="printPic" />
+      </div>
+    </div>
+  </body>
+  <script>
+    function printPic1() {
+      let p = document.getElementById("printPic");
+      p.src = "./이미지샘플/cd1.jpg";
+    }
+    function printPic2() {
+      let p = document.getElementById("printPic");
+      p.src = "./이미지샘플/cd2.jpg";
+    }
+    function printPic3() {
+      let p = document.getElementById("printPic");
+      p.src = "./이미지샘플/cd3.jpg";
+    }
+    function printPic4() {
+      let p = document.getElementById("printPic");
+      p.src = "./이미지샘플/cd4.jpg";
+    }
+    function printPic5() {
+      let p = document.getElementById("printPic");
+      p.src = "./이미지샘플/cd5.jpg";
+    }
+    function printPic6() {
+      let p = document.getElementById("printPic");
+      p.src = "./이미지샘플/cd6.jpg";
+    }
+    function printPic7() {
+      let p = document.getElementById("printPic");
+      p.src = "./이미지샘플/cd7.jpg";
+    }
+    function printPic8() {
+      let p = document.getElementById("printPic");
+      p.src = "./이미지샘플/cd8.jpg";
+    }
+    function printPic9() {
+      let p = document.getElementById("printPic");
+      p.src = "./이미지샘플/cd9.jpg";
+    }
+  </script>
+</html>
